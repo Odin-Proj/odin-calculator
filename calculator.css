@@ -46,8 +46,12 @@ h1 {
     font-size: 1.5rem;
 }
 
-.screen-last, .screen-current {
+.screen-current {
     min-height: 1.6rem;
+}
+
+.screen-last {
+    min-height: 2rem;
 }
 
 .numpad {
