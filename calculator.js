@@ -108,6 +108,7 @@ function setOperation(operator) {
     lastOperationScreen.textContent = `${firstOperand} ${currentOperation}`;
   }
   shouldResetScreen = true;
+  currentOperationScreen.textContent = "";
 }
 
 function setExOperation(exOperator) {
