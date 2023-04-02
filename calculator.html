@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="calculator.css" />
+
     <script src="calculator.js" defer></script>
   </head>
   <body>
-    <p>TESTER</p>
-    <div id="test"></div>
-
     <div class="main-container">
+      <h1>Calculator</h1>
       <div class="calculator-container">
         <div class="screen">
           <div class="screen-last" id="lastOperationScreen"></div>
@@ -23,13 +24,13 @@
           <div class="numpad">
 
             <button class="btn clear" id="clearBtn">C</button>
-            <button class="btn operator">^</button>
+            <button class="btn operator">x<sup>n</sup></button>
             <button class="btn operator">%</button>
-            <button class="btn" id="deleteBtn">bk</button>
+            <button class="btn" id="deleteBtn"><i class="material-icons">backspace</i></button>
 
             <button class="btn operator-ex">1/x</button>
-            <button class="btn operator-ex">x2</button>
-            <button class="btn operator-ex">sq</button>
+            <button class="btn operator-ex">x<sup>2</sup></button>
+            <button class="btn operator-ex">&radic;x</button>
             <button class="btn operator">/</button>
 
             <button class="btn num">7</button>
@@ -55,6 +56,9 @@
           </div>
         </div>
       </div>
+      <footer>
+        <p>Sam</p>
+      </footer>
     </div>
   </body>
 </html>

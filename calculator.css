@@ -1,3 +1,31 @@
+@font-face {
+    font-family: "Regular Brush";
+    src: url(fonts/Regular\ Brush.otf);
+}
+
+@font-face {
+    font-family: "Indie Flower";
+    src: url(fonts/IndieFlower-Regular.ttf);
+}
+
+body {
+    background-color: cyan;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Indie Flower', sans-serif;
+    font-size: 70px;
+    color: #2c4661;
+    /* margin-bottom: 0px; */
+}
+
 .calculator-container {
     display: flex;
     flex-direction: column;
@@ -63,4 +91,23 @@
 #deleteBtn, #pointBtn, 
 #plusMinusBtn {
     color: #58C86B;
+}
+
+#deleteBtn {
+    padding-top: 13px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: teal;
+    color: white;
+    text-align: center;
+    font-family: "Regular Brush", sans-serif;
+}
+
+footer p {
+    margin: 8px;
 }

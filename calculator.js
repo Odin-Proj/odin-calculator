@@ -102,11 +102,16 @@ function setOperation(operator) {
   }
   firstOperand = currentOperationScreen.textContent;
   currentOperation = operator;
-  lastOperationScreen.textContent = `${firstOperand} ${currentOperation}`;
+  if (currentOperation === "xn") {
+    lastOperationScreen.innerHTML = `${firstOperand}<sup>n`
+  } else {
+    lastOperationScreen.textContent = `${firstOperand} ${currentOperation}`;
+  }
   shouldResetScreen = true;
 }
 
 function setExOperation(exOperator) {
+  console.log(exOperator);
     exCalculate(exOperator, currentOperationScreen.textContent);
     shouldResetScreen;
 }
@@ -123,7 +128,11 @@ function calculate() {
   currentOperationScreen.textContent = roundResult(
     operate(currentOperation, firstOperand, secondOperand)
   );
-  lastOperationScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand}`;
+  if (currentOperation === "xn") {
+    lastOperationScreen.innerHTML = `${firstOperand}<sup>${secondOperand}`;
+  } else {
+    lastOperationScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand}`;
+  }
   currentOperation = null;
 }
 
@@ -135,7 +144,20 @@ function exCalculate(exOperator, num) {
     currentOperationScreen.textContent = roundResult(
         exOperate(exOperator, num)
     );
-    lastOperationScreen.textContent = `${exOperator} ${num}`;
+
+    switch (exOperator) {
+      case "x2":
+        lastOperationScreen.innerHTML = `${num}<sup>2`;
+        break;
+      case "1/x":
+        lastOperationScreen.textContent = `1/${num}`;
+        break;
+      case "√x":
+        lastOperationScreen.textContent = `√${num}`;
+        break;
+      default:
+        lastOperationScreen.textContent = `${exOperator} ${num}`;
+    }
 }
 
 function roundResult(number) {
@@ -145,6 +167,7 @@ function roundResult(number) {
 function operate(operator, a, b) {
   a = Number(a);
   b = Number(b);
+  console.log(operator);
   switch (operator) {
     case "+":
       return add(a, b);
@@ -164,7 +187,7 @@ function operate(operator, a, b) {
         } else {
             return modulus(a, b);
         }
-    case "^":
+    case "xn":
         return power(a, b);
     default:
       return null;
@@ -202,7 +225,7 @@ function exOperate(operator, num) {
             return squared(num);
         case '1/x':
             return divideByOne(num);
-        case 'sq':
+        case '√x':
             return sqrt(num);
         default:
             return null;
